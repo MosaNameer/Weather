@@ -301,7 +301,7 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@enab/core@latest":
+"@enab/core@^1.8.22-beta.15":
   version "1.8.22-beta.15"
   resolved "https://registry.yarnpkg.com/@enab/core/-/core-1.8.22-beta.15.tgz#44f8150e183b7c6c706ee878d405f4190bb43386"
   integrity sha512-jxl6ZVInvNzhK+8VlZkdJYGTCHtXcTm2PYU8PV32aw4Up+UbJ/VhYQl7pXHlGFIesn5IGnyem6Y8xb0FYb9dFw==
