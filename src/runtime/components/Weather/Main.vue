@@ -1,16 +1,17 @@
-<template>
+<template >
   <!-- Application -->
-  <div class="">
-    <div dir="ltr" class="h-screen md:relative md:overflow-hidden">
-      <UiTabGroup class="absolute top-0" :col="false" :selected="1" :tabs="['Home', 'About', 'Contact']">
+  <div dir="ltr" v-if="city">
+
+    <div class="h-screen md:relative md:overflow-hidden">
+      <UiTabGroup class="absolute top-0" :col="false" :selected="0" :tabs="['Home', 'About', 'Contact']">
         <template #tab-1>
           <div>
             <img class="h-full w-full" :src="background">
-            <div class="absolute w-full h-full top-0 p-40">
+            <div class="absolute w-full top-0 p-40">
               <div class="flex justify-between h-60">
                 <div class="">
                   <h1 class="text-8xl text-white">{{city?.name}}</h1>
-                  <p class="font-extralight text-2xl mt-2 text-white ml-1">sunday Dec 9th</p>
+                  <p class="font-extralight text-2xl mt-2 text-white ml-1">{{ today }}</p>
                   <img :src="`https://openweathermap.org/img/wn/${city?.weather[0].icon}@4x.png`" class="w-56" alt="">
                 </div>
                 <div class="">
@@ -38,9 +39,11 @@
           <h1>Contact</h1>
         </template>
       </UiTabGroup>
-
-
     </div>
+  </div>
+
+  <div v-else dir="ltr" class="mr-10">
+    <AppNotFound />
   </div>
 
 </template>
@@ -64,8 +67,9 @@ const handleClick = () => {
   search.value = formatedSearch;
   input.value = '';
 }
-// const {data: city, error} = useFetch(
-//  () => `https://api.openweathermap.org/data/2.5/weather?q=${search.value}&units=metric&appid=28f543541a4bc931013418a9a0e6d673`);
+const goBack = () => {
+  search.value = cookie.value;
+}
 
 const { data: city, error } = useAsyncData("city", async () => {
   let response;
@@ -95,5 +99,12 @@ const { data: city, error } = useAsyncData("city", async () => {
   watch: [search]
 });
 
+let today = new Date()
+today = today.toLocaleDateString("en-US", {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
 
 </script>
