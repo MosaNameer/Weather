@@ -1,34 +1,48 @@
 <template>
   <!-- Application -->
-  <div dir="ltr" class="h-screen relative overflow-hidden">
-    <img class="h-full w-full"
-      src="https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80"
-      alt="">
-    <div class="absolute w-full h-full top-0 p-40">
-      <div class="flex justify-between h-60">
-        <div class="">
-          <h1 class="text-8xl text-white">{{city?.name}}</h1>
-          <p class="font-extralight text-2xl mt-2 text-white ml-1">sunday Dec 9th</p>
-          <img :src="`https://openweathermap.org/img/wn/${city?.weather[0].icon}@4x.png`" class="w-56" alt="">
-        </div>
-        <div class="">
-          <p class="text-9xl text-white font-extralight mr-100">
-            {{city?.main.temp}}°
-          </p>
-        </div>
-      </div>
-      <div class="flex mt-20">
-        <UiInput @keydown.enter="handleClick()" v-model="input" class="bg-black " w="96" icon="i-clarity-email-solid"
-          label="" placeholder="Placeholder" type="text">
-          <!-- Action Buttons -->
-        </UiInput>
-        <UiButton @click="handleClick()" color="success">
-          Search
-        </UiButton>
-      </div>
-    </div>
+  <div class="">
+    <div dir="ltr" class="h-screen md:relative md:overflow-hidden">
+      <UiTabGroup class="absolute top-0" :col="false" :selected="1" :tabs="['Home', 'About', 'Contact']">
+        <template #tab-1>
+          <div>
+            <img class="h-full w-full" :src="background">
+            <div class="absolute w-full h-full top-0 p-40">
+              <div class="flex justify-between h-60">
+                <div class="">
+                  <h1 class="text-8xl text-white">{{city?.name}}</h1>
+                  <p class="font-extralight text-2xl mt-2 text-white ml-1">sunday Dec 9th</p>
+                  <img :src="`https://openweathermap.org/img/wn/${city?.weather[0].icon}@4x.png`" class="w-56" alt="">
+                </div>
+                <div class="">
+                  <p class="text-9xl text-white font-extralight mr-100 mt-25">
+                    {{city?.main.temp}}°
+                  </p>
+                </div>
+              </div>
+              <div class="flex mt-20">
+                <UiInput @keydown.enter="handleClick()" v-model="input" class="dark:bg-black bg-white" w="96"
+                  icon="i-clarity-email-solid" label="" placeholder="Enter city name..." type="text">
+                  <!-- Action Buttons -->
+                </UiInput>
+                <UiButton @click="handleClick()" color="success">
+                  Search
+                </UiButton>
+              </div>
+            </div>
+          </div>
+        </template>
+        <template #tab-2>
+          <h1>About</h1>
+        </template>
+        <template #tab-3>
+          <h1>Contact</h1>
+        </template>
+      </UiTabGroup>
 
+
+    </div>
   </div>
+
 </template>
 
 <script setup>
@@ -80,5 +94,6 @@ const { data: city, error } = useAsyncData("city", async () => {
 }, {
   watch: [search]
 });
+
 
 </script>
