@@ -27,7 +27,7 @@
   </div>
 
   <div v-else dir="ltr" class="mr-10">
-    <AppNotFound :cookie="cookie" />
+    <AppNotFound :cookie="cookie" @some-event="goBAck" />
   </div>
 </template>
 
@@ -43,6 +43,9 @@ const handleClick = () => {
   const formatedSearch = input.value.trim().split(" ").join("+")
   search.value = formatedSearch;
   input.value = '';
+}
+const goBAck = () => {
+  search.value = cookie.value;
 }
 
 const { data: city, error } = useAsyncData("city", async () => {

@@ -99,7 +99,7 @@
       </div>
       <div>
         <p class="text-5xl "></p>
-        <button @click="goBack()" class="bg-green-500 p-2 dark:text-black border text-white ">Go back</button>
+        <button @click="$emit('someEvent')" class="bg-green-500 p-2 dark:text-black border text-white ">Go back</button>
       </div>
     </div>
   </div>
@@ -109,15 +109,13 @@
   const props = defineProps({
     cookie: {
       type: String,
-      required: true,
+    },
+    search: {
+      type: String,
     },
   })
 
-  const search2 = ref('');
+  const search2 = ref("");
   const cookie = ref(props.cookie);
 
-const goBack = () => {
-  search2.value = cookie.value;
-  console.log(search2.value);
-}
 </script>
