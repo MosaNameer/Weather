@@ -1,20 +1,20 @@
 <template>
-  <div v-if="city">
-    <img class="h-full w-full" :src="background">
-    <div class="absolute w-full top-0 p-40">
-      <div class="flex justify-between h-60">
-        <div class="">
+  <div class="mt-30" v-if="city">
+    <!-- <img class="h-full w-full" :src="background"> -->
+    <div class="w-screen top-0 ">
+      <div class="flex justify-between  h-60">
+        <div class="ml-50">
           <h1 class="text-8xl text-white">{{city?.name}}</h1>
           <p class="font-extralight text-2xl mt-2 text-white ml-1">{{ today }}</p>
           <img :src="`https://openweathermap.org/img/wn/${city?.weather[0].icon}@4x.png`" class="w-56" alt="">
         </div>
         <div class="">
-          <p class="text-9xl text-white font-extralight mr-100 mt-25">
+          <p class="text-9xl text-white font-extralight mr-75 mt-25">
             {{city?.main.temp}}°
           </p>
         </div>
       </div>
-      <div class="flex mt-20">
+      <div class="flex mt-20 ml-50">
         <UiInput @keydown.enter="handleClick()" v-model="input" class="dark:bg-black bg-white" w="96"
           icon="i-clarity-email-solid" label="" placeholder="Enter city name..." type="text">
           <!-- Action Buttons -->

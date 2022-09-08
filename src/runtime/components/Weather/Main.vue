@@ -2,7 +2,8 @@
   <!-- Application -->
   <div dir="ltr">
 
-    <div class="h-screen md:relative md:overflow-hidden">
+    <div class="flex justify-center h-screen md:relative items-center md:overflow-hidden">
+      <img class="h-full w-full" src="https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3540&q=80">
       <UiTabGroup class="absolute top-0" :col="false" :selected="0" :tabs="['Home', 'About', 'Contact']">
         <template #tab-1>
           <AppHome />

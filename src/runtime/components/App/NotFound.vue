@@ -93,12 +93,10 @@
       </svg>
     </div>
     <div class="col-span-1 order-1 text-center mt-50">
-      <div class="">
-        <p class="text-9xl">404</p>
-
-      </div>
+      <p class="text-8xl dark:text-black">
+        CITY NOT FOUND
+      </p>
       <div>
-        <p class="text-5xl "></p>
         <button @click="$emit('someEvent')" class="bg-green-500 p-2 dark:text-black border text-white ">Go back</button>
       </div>
     </div>
@@ -106,16 +104,16 @@
 </template>
 
 <script setup>
-  const props = defineProps({
-    cookie: {
-      type: String,
-    },
-    search: {
-      type: String,
-    },
-  })
+const props = defineProps({
+  cookie:{
+    type: String,
+  },
+  search: {
+    type: String,
+  },
+})
 
-  const search2 = ref("");
-  const cookie = ref(props.cookie);
+const search2 = ref("");
+const cookie = ref(props.cookie);
 
 </script>
