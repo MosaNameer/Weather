@@ -116,4 +116,8 @@ const props = defineProps({
 const search2 = ref("");
 const cookie = ref(props.cookie);
 
+
+// const { weather, error, load } = getWeather();
+// load();
+// return { weather, error };
 </script>

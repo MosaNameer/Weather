@@ -49,6 +49,7 @@
 </template>
 
 <script setup>
+//import { getWeather } from "../../composables/getWeather";
 
 const cookie = useCookie("city")
 const config = useRuntimeConfig()
@@ -60,7 +61,7 @@ const background = ref('')
 const handleClick = () => {
   const formatedSearch = input.value.trim().split(" ").join("+")
   search.value = formatedSearch;
-  input.value = '';
+  input.value = ''
 }
 const goBAck = () => {
   search.value = cookie.value;
@@ -107,7 +108,7 @@ time = time.toLocaleTimeString("en-US", {
   hour: "numeric",
   minute: "numeric",
   //second: "numeric",
-  hour12: false,
+  hour12: true,
 });
 
 
@@ -134,5 +135,9 @@ month = month.toLocaleDateString("en-US", {
 //             return 'text-xl'
 //     }
 // })
+
+// const { weather, load } = getWeather(search.value);
+// load();
+// return { weather };
 
 </script>

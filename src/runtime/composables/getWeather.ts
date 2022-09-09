@@ -1,6 +1,6 @@
 import { ref } from "vue";
 
-const getWeather = () => {
+const getWeather = (search) => {
   const weather = ref('');
   const error = ref(null);
 
