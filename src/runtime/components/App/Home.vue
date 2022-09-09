@@ -10,8 +10,8 @@
             <p class="font-extralight text-2xl mt-2 text-white ml-1"></p>
           </div>
 
-          <div class="flex mt-10">
-            <UiInput @keydown.enter="handleClick()" v-model="input" class="dark:bg-black bg-white" w="52"
+          <div class="flex mt-20">
+            <UiInput @keydown.enter="handleClick()" v-model="input" class="dark:bg-black bg-white" w="72"
               icon="i-clarity-email-solid" label="" placeholder="Enter city name..." type="text">
             </UiInput>
             <UiButton @click="handleClick()" class="w-15-6 text-center" color="success">
@@ -21,7 +21,7 @@
         </div>
 
           <div>
-            <div class="grid grid-cols-12 w-125 h-72 shadow-xl rounded-lg border p-3 mr-50">
+            <div class="grid grid-cols-12 w-125 h-72 shadow-xl rounded-lg border p-3 mr-50 bg-black bg-opacity-60	">
               <div class="col-span-5 ml-4">
                 <h2><a href="" class="text-white text-3xl">  {{ city?.name}} / {{ city?.sys.country}}  </a></h2>
                 <div class="flex flex-col mt-6">
