@@ -39,6 +39,7 @@ if (!cookie.value) cookie.value = "Paris"
 const search = ref(cookie.value)
 const input = ref('')
 const background = ref('')
+
 const handleClick = () => {
   const formatedSearch = input.value.trim().split(" ").join("+")
   search.value = formatedSearch;
