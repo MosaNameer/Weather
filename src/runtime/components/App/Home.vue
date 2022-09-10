@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-30" v-if="city">
+  <div class="absolute top-0 mt-30" v-if="city">
     <!-- <img class="h-full w-full" :src="background"> -->
     <div class="w-screen top-0 ">
       <div class="flex justify-between  h-60">
@@ -43,7 +43,7 @@
     </div>
   </div>
 
-  <div v-else dir="ltr" class="mr-10">
+  <div v-else dir="ltr" class="absolute top-0 mr-10">
     <AppNotFound :cookie="cookie" @some-event="goBAck" />
   </div>
 </template>
