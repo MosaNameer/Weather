@@ -3,7 +3,7 @@
     <img class="h-full w-full" :src="background">
     <!-- <img class="h-full w-full" :src="background"> -->
     <div class="absolute top-0 mt-30 w-screen top-0 ">
-      <div class="flex justify-between  h-60">
+      <div class="flex justify-between h-60">
         <div class="ml-50">
           <div class="text-center">
             <h1 class="text-9xl text-white"> {{ time }}</h1>
@@ -50,7 +50,8 @@
 </template>
 
 <script setup>
-//import { getWeather } from "../../composables/getWeather";
+import { useWeatherStore } from "../../composables/getWeather";
+const store = useWeatherStore();
 
 const cookie = useCookie("city")
 const config = useRuntimeConfig()
