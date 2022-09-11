@@ -1,24 +1,17 @@
-import { ref } from "vue";
+import { defineStore } from "pinia";
+export const useWeatherStore = defineStore( "main" ,{
+  state: () => ({
 
-const getWeather = (search) => {
-  const weather = ref('');
-  const error = ref(null);
-
-  const load = async () => {
-    try {
-      //
-      let data = await fetch(
-        "https://api.openweathermap.org/data/2.5/weather?q=${search.value}&units=metric&appid=28f543541a4bc931013418a9a0e6d673");
-      if (!data.ok) {
-        throw Error("no data here");
-      } else {
-        weather.value = await data.json();
-      }
-    } catch (err) {
-      error.value = err.message;
-      console.log(error.value);
+    search: "" ,
+  }),
+  getters: {
+    getWeather() {
+        return  this.search;
     }
-  };
-  return { weather, error, load };
-};
-export default getWeather;
+  },
+  actions: {
+    async fetchWeather() {
+      const response = await fetch( "https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=YOUR_API_KEY" )
+      const data = await response.json()    },
+  }
+})
