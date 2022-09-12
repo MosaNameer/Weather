@@ -6,7 +6,7 @@
       <div class="flex justify-between h-60">
         <div class="ml-50">
           <div class="text-center">
-            <h1 class="text-9xl text-white"> {{ time }}</h1>
+            <h1 class="text-9xl text-white"> {{ time }} {{ getWeather.main.temp }} </h1>
             <span class="text-xl text-white"> {{ day }} | {{ month }} </span>
             <p class="font-extralight text-2xl mt-2 text-white ml-1"></p>
           </div>
@@ -52,6 +52,18 @@
 <script setup>
 import { useWeatherStore } from "../../composables/getWeather";
 const store = useWeatherStore();
+
+const getWeather = computed(() => {
+  return store.getWeather
+})
+const weather = computed(() => {
+  return store.weather
+})
+
+onMounted(() => {
+  store.fetchWeather();
+})
+
 
 const cookie = useCookie("city")
 const config = useRuntimeConfig()
