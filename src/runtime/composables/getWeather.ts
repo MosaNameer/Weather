@@ -14,9 +14,8 @@ export const useWeatherStore = defineStore("main", {
           `https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=28f543541a4bc931013418a9a0e6d673`);
         const data = await response.json();
         this.weather = data;
-      } catch (error) {
-
       }
-    }
+      catch (error) {}
+    },
   },
 });
