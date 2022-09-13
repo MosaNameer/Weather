@@ -1,5 +1,5 @@
 <template>
-  <div class=" h-full w-full " v-if="city">
+  <div class=" h-full w-full ">
     <img class="h-full w-full" :src="background">
     <!-- <img class="h-full w-full" :src="background"> -->
     <div class="absolute top-0 mt-30 w-screen top-0 ">
@@ -24,7 +24,7 @@
         <div>
           <div class="grid grid-cols-12 w-125 h-72 shadow-xl rounded-lg border p-3 mr-50 bg-black bg-opacity-60	">
             <div class="col-span-5 ml-4">
-              <h2><a href="" class="text-white text-3xl"> {{ weather?.name}} / {{ weather?.sys.country}} </a></h2>
+              <h2><a href="" class="text-white text-3xl"> {{ weather?.name}}  / {{ weather?.sys.country}} </a></h2>
               <div class="flex flex-col mt-6">
                 <span class="text-white text-7xl">{{ weather?.main.temp}}°</span>
                 <span class="text-gray-3 text-lg"> {{ weather?.weather[0].description}} </span>
@@ -43,9 +43,9 @@
     </div>
   </div>
 
-  <div v-else dir="ltr" class="absolute top-0 mr-10">
+  <!-- <div v-else dir="ltr" class="absolute top-0 mr-10">
     <AppNotFound :cookie="cookie" @some-event="goBAck" />
-  </div>
+  </div> -->
 </template>
 
 <script setup>
@@ -60,11 +60,11 @@ const weather = computed(() => {
 })
 
 onMounted(() => {
-  store.fetchWeather(search.value);
+  store.fetchWeather();
   // refresh
-  watch(search, () => {
-    store.fetchWeather(search.value);
-  });
+  // watch(search, () => {
+  //   store.fetchWeather(search.value);
+  // });
 })
 
 console.log(store)
