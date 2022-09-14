@@ -1,5 +1,5 @@
 <template>
-  <div class=" h-full w-full ">
+  <div class=" h-full w-full" v-if="city">
     <img class="h-full w-full" :src="background">
     <!-- <img class="h-full w-full" :src="background"> -->
     <div class="absolute top-0 mt-30 w-screen top-0 ">
@@ -24,18 +24,18 @@
         <div>
           <div class="grid grid-cols-12 w-125 h-72 shadow-xl rounded-lg border p-3 mr-50 bg-black bg-opacity-60	">
             <div class="col-span-5 ml-4">
-              <h2><a href="" class="text-white text-3xl"> {{ weather?.name}}  / {{ weather?.sys.country}} </a></h2>
+              <h2><a href="" class="text-white text-3xl"> {{ city?.name}}  / {{ city?.sys.country}} </a></h2>
               <div class="flex flex-col mt-6">
-                <span class="text-white text-7xl">{{ weather?.main.temp}}°</span>
-                <span class="text-gray-3 text-lg"> {{ weather?.weather[0].description}} </span>
-                <span class="text-gray-3 text-lg"> wind speed {{ weather?.wind.speed}}</span>
-                <span class="text-gray-3 text-lg"> MIN - {{ weather?.main.temp_min }} </span>
-                <span class="text-gray-3 text-lg"> MAX - {{ weather?.main.temp_max }} </span>
+                <span class="text-white text-7xl">{{ city?.main.temp}}°</span>
+                <span class="text-gray-3 text-lg"> {{ city?.weather[0].description}} </span>
+                <span class="text-gray-3 text-lg"> wind speed {{ city?.wind.speed}}</span>
+                <span class="text-gray-3 text-lg"> MIN - {{ city?.main.temp_min }} </span>
+                <span class="text-gray-3 text-lg"> MAX - {{ city?.main.temp_max }} </span>
               </div>
             </div>
             <div class="col-span-7">
               <!-- get the icon -->
-              <img :src="`https://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`" class="mt-6 w-72">
+              <img :src="`https://openweathermap.org/img/wn/${city.weather[0].icon}@4x.png`" class="mt-6 w-72">
             </div>
           </div>
         </div>
@@ -43,9 +43,9 @@
     </div>
   </div>
 
-  <!-- <div v-else dir="ltr" class="absolute top-0 mr-10">
+  <div v-else dir="ltr" class="absolute top-0 mr-10">
     <AppNotFound :cookie="cookie" @some-event="goBAck" />
-  </div> -->
+  </div>
 </template>
 
 <script setup>
