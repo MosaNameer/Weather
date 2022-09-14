@@ -75,7 +75,6 @@ const goBAck = () => {
   search.value = cookie.value;
 }
 
-// refresh when search changes
 let today = new Date()
 today = today.toLocaleDateString("en-US", {
   weekday: "long",
