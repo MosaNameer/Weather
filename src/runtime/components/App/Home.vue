@@ -1,7 +1,7 @@
 <template>
   <div class=" h-full w-full">
     <img class="h-full w-full" :src="tempBackground">
-    <div class="absolute top-0 mt-30 w-screen top-0 ">
+    <div class="absolute top-0 mt-30 w-screen">
       <div class="flex justify-between h-60">
         <div class="ml-50">
           <div class="text-center">
@@ -28,7 +28,7 @@
               <h2><a href="" class="text-white text-3xl"> {{ store.getWeather?.name}}  / {{ store.getWeather?.sys?.country}} </a></h2>
               <div class="flex flex-col mt-6">
                 <span class="text-white text-7xl">{{ store.getWeather?.main?.temp}}°</span>
-                <span class="text-gray-3 text-lg">  </span>
+                <span class="text-gray-3 text-lg"></span>
                 <span class="text-gray-3 text-lg"> wind speed {{ store.getWeather?.wind?.speed}}</span>
                 <span class="text-gray-3 text-lg"> MIN - {{ store.getWeather?.main?.temp_min }} </span>
                 <span class="text-gray-3 text-lg"> MAX - {{ store.getWeather?.main?.temp_max }} </span>
